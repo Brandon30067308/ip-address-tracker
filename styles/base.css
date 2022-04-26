@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input {
+  @apply appearance-none;  
+}
+
+.info {
+  @apply w-full md:w-1/4 flex flex-col items-center justify-center;
+}
+
+.info h3 {
+  @apply text-gray text-[11.5px] sm:text-[13px] font-semibold tracking-[.15em] mb-1.5 md:mb-2.5;
+}
+
+.info p {
+  @apply text-dark text-lg sm:text-2xl text-center;
+  overflow-wrap: anywhere;
+}
