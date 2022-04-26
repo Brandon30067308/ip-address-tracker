@@ -12,7 +12,7 @@ module.exports = {
         error: "#b98686",
       },
       fontFamily: { rubik: ["rubik, sans serif"] },
-      backgroundImage: { pattern: "url(../images/pattern-bg.png)" },
+      backgroundImage: { pattern: "url(/pattern-bg.png)" },
     },
   },
   plugins: [],

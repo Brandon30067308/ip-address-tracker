@@ -1,4 +1,4 @@
-import { Dispatch, FC, useEffect, useRef, useState } from "react";
+import { Dispatch, FC, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
