@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap");
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -12,24 +12,27 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 input {
-  @apply appearance-none;  
+  @apply appearance-none;
 }
 
 .info {
-  @apply w-full md:w-1/4 flex flex-col items-center justify-center;
+  @apply w-full md:w-fit flex flex-col items-center justify-center;
 }
 
 .info h3 {
-  @apply text-gray text-[11.5px] sm:text-[13px] font-semibold tracking-[.15em] mb-1.5 md:mb-2.5;
+  @apply w-full font-semibold text-gray text-[11.5px] text-center sm:text-left sm:text-[13px]
+  tracking-[.15em] mb-1.5 md:mb-2.5;
 }
 
 .info p {
-  @apply text-dark text-lg sm:text-2xl text-center;
+  @apply w-full font-semibold text-dark text-lg sm:text-2xl text-center sm:text-left;
   overflow-wrap: anywhere;
 }

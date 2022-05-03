@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const getInfo = async (req: NextApiRequest, res: NextApiResponse) => {
   const ip = req.query?.ip?.toString();
 
   const fetchUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${
@@ -24,3 +24,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       throw err;
     });
 };
+
+export default getInfo;
