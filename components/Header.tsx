@@ -43,7 +43,7 @@ const Header: FC<HeaderProps> = ({
           value={ipValue}
           placeholder="Search for any IP address or domain..."
           onChange={(e) => setIPValue(e.target.value)}
-          className="flex-[.875] h-full bg-white text-[14.5px] sm:text-[18px] px-3.5 py-4
+          className="flex-[.875] h-full bg-white text-[16px] sm:text-[18px] px-3.5 py-4
             rounded-l-2xl rounded-r-none outline-none"
         />
         <button

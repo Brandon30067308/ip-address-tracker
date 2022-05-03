@@ -50,7 +50,7 @@ const Main: FC<MainProps> = ({ ip, info, error, loading, fetchInfo }) => {
         >
           {!loading && !error && info ? (
             <Fragment>
-              <div className="info md:mb-0 mb-6">
+              <div className="info md:mb-0 mb-5">
                 <h3>IP ADDRESS</h3>
                 <p
                   style={{
@@ -64,7 +64,7 @@ const Main: FC<MainProps> = ({ ip, info, error, loading, fetchInfo }) => {
                 className="hidden md:block mx-3.5 border-r-2 h-[100px] border-r-gray
                   border-opacity-30"
               />
-              <div className="info md:mb-0 mb-6">
+              <div className="info md:mb-0 mb-5">
                 <h3>LOCATION</h3>
                 <p>{info.location}</p>
               </div>
@@ -72,7 +72,7 @@ const Main: FC<MainProps> = ({ ip, info, error, loading, fetchInfo }) => {
                 className="hidden md:block mx-3.5 border-r-2 h-[100px] border-r-gray
                   border-opacity-30"
               />
-              <div className="info md:mb-0 mb-6">
+              <div className="info md:mb-0 mb-5">
                 <h3>TIMEZONE</h3>
                 <p>{info.timezone}</p>
               </div>
@@ -86,10 +86,8 @@ const Main: FC<MainProps> = ({ ip, info, error, loading, fetchInfo }) => {
               </div>
             </Fragment>
           ) : error ? (
-            <p className="flex items-center text-error tracking-[0.05em]">
-              <span className="mr-2.5 text-[14.5px] sm:text-[18px]">
-                {error}
-              </span>
+            <p className="flex items-center text-error">
+              <span className="mr-2.5 text-[16px] sm:text-[18px]">{error}</span>
               {!error.toLowerCase().includes("invalid") && (
                 <button
                   onClick={handleRetry}

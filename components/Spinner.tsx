@@ -6,7 +6,7 @@ const Spinner: FC = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 64 64"
-        className="w-12 h-12 animate-spin"
+        className="w-12 sm:w-16 h-12 sm:h-16 animate-spin"
         style={{
           animationDuration: "800ms",
         }}
