@@ -5,7 +5,7 @@ const getInfo = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const fetchUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${
     process.env.API_KEY
-  }${ip !== "none" ? `&ipAddress=${ip}` : ""}`;
+  }${ip !== "none" ? `&ipAddress=${ip}` : "&ipAddress="}`;
   fetch(fetchUrl)
     .then((response) => {
       if (response.ok) {
@@ -20,8 +20,8 @@ const getInfo = async (req: NextApiRequest, res: NextApiResponse) => {
     .then((info) => {
       return res.json(info);
     })
-    .catch((err) => {
-      throw err;
+    .catch(() => {
+      return res.status(502).end("Network Error");
     });
 };
 

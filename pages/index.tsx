@@ -26,15 +26,13 @@ const Home: NextPage = () => {
     fetch(fetchIP ? `/api/getinfo/${fetchIP.trim()}` : "/api/getinfo/none", {
       signal: controller.signal,
     })
-      .then((res) => {
+      .then(async (res) => {
         setLoading(false);
         if (res.ok) {
           clearTimeout(timeoutId);
           return res.json();
         }
-        throw new Error(
-          res.status === 422 ? "Invalid IP Adrress..." : "An error occured..."
-        );
+        throw new Error((await res.text()) || "An error occurred");
       })
       .then((info: any) => {
         const {
