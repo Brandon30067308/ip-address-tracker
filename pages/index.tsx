@@ -18,21 +18,26 @@ const Home: NextPage = () => {
   const fetchInfo = (ipAddress?: string) => {
     const fetchIP = ipAddress || ip;
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 14500);
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
 
     error && setError(null);
     setLoading(true);
 
-    fetch(fetchIP ? `/api/getinfo/${fetchIP.trim()}` : "/api/getinfo/none", {
+    const fetchUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=${
+      process.env.NEXT_PUBLIC_API_KEY
+    }${fetchIP ? `&ipAddress=${fetchIP}` : "&ipAddress="}`;
+    fetch(fetchUrl, {
       signal: controller.signal,
     })
-      .then(async (res) => {
+      .then((res) => {
         setLoading(false);
         if (res.ok) {
           clearTimeout(timeoutId);
           return res.json();
         }
-        throw new Error((await res.text()) || "An error occurred");
+        throw new Error(
+          res.status === 422 ? "Invalid IP Address" : "An error occurred"
+        );
       })
       .then((info: any) => {
         const {
@@ -44,7 +49,11 @@ const Home: NextPage = () => {
       })
       .catch((err) => {
         setLoading(false);
-        setError(err.name === "AbortError" ? "Network error!" : err.message);
+        setError(
+          err.name === "AbortError" || err.message.includes("fetch")
+            ? "Network error!"
+            : err.message
+        );
       });
   };
 
